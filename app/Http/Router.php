@@ -157,7 +157,8 @@ class Router {
 		$auxUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
 
 		// Retorna a URI sem prefixo
-		return rtrim(end($auxUri), '/');
+		// return end($auxUri);
+		return rtrim(end($auxUri), '/') == '' ? end($auxUri) : rtrim(end($auxUri), '/');
 	}
 
 	/**
