@@ -3,13 +3,13 @@
 use \App\Controller\Api;
 use \App\Http\Response;
 
-$authMethod = 'jwt-auth'; // user-basic-auth
+
 
 // Rota de listagem de usuários
 $obRouter->get('/api/v1/users', [
 	'middlewares' => [
 		'api',
-		$authMethod,
+		getenv('AUTHENTICATION_METHOD'),
 	],
 	function ($request) {
 		return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -20,7 +20,7 @@ $obRouter->get('/api/v1/users', [
 $obRouter->get('/api/v1/users/me', [
 	'middlewares' => [
 		'api',
-		$authMethod
+		getenv('AUTHENTICATION_METHOD')
 	],
 	function ($request) {
 		return new Response(200, Api\User::getCurrentUser($request) , 'application/json');
@@ -31,7 +31,7 @@ $obRouter->get('/api/v1/users/me', [
 $obRouter->get('/api/v1/users/{id}', [
 	'middlewares' => [
 		'api',
-		$authMethod,
+		getenv('AUTHENTICATION_METHOD'),
 	],
 	function ($request, $id) {
 		return new Response(200, Api\User::getUser($request, $id), 'application/json');
@@ -42,7 +42,7 @@ $obRouter->get('/api/v1/users/{id}', [
 $obRouter->post('/api/v1/users', [
 	'middlewares' => [
 		'api',
-		$authMethod,
+		getenv('AUTHENTICATION_METHOD'),
 	],
 	function ($request) {
 		return new Response(201, Api\User::setNewUser($request), 'application/json');
@@ -53,7 +53,7 @@ $obRouter->post('/api/v1/users', [
 $obRouter->put('/api/v1/users/{id}', [
 	'middlewares' => [
 		'api',
-		$authMethod,
+		getenv('AUTHENTICATION_METHOD'),
 	],
 	function ($request, $id) {
 		return new Response(200, Api\User::setEditUser($request, $id), 'application/json');
@@ -64,7 +64,7 @@ $obRouter->put('/api/v1/users/{id}', [
 $obRouter->delete('/api/v1/users/{id}', [
 	'middlewares' => [
 		'api',
-		$authMethod,
+		getenv('AUTHENTICATION_METHOD'),
 	],
 	function ($request, $id) {
 		return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');

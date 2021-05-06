@@ -4,6 +4,7 @@ namespace App\Controller\Pages;
 
 use \App\Utils\View;
 use \App\Model\Entity\Testimony as EntityTestimony;
+use Exception;
 use \WilliamCosta\DatabaseManager\Pagination;
 
 class Testimony extends Page
@@ -73,6 +74,10 @@ class Testimony extends Page
     {
         // Dados do post
         $postVars = $request->getPostVars();
+
+        if ( empty($postVars['nome']) || empty($postVars['mensagem'])) {
+            throw new Exception("'nome' and 'mensagem' are required", 400);
+        }
 
         // Nova instância de depoimento
         $obTestimony = new EntityTestimony;
