@@ -1,0 +1,16 @@
+{
+    "name": "thyagogoth/framework",
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        },
+        "files": [
+            "app/Uteis.php"
+        ]
+    },
+    "require": {
+        "william-costa/dot-env": "^0.1.0",
+        "william-costa/database-manager": "^0.1.0",
+        "firebase/php-jwt": "^5.2"
+    }
+}

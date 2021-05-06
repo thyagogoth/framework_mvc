@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+    <div class="card mt-3 text-dark text-center" style="min-width: 500px">
+
+        <div class="card-header">
+            <h1>LOGIN</h1>
+        </div>
+
+        <div class="card-body">
+            {{ status }}
+            <form method="post">
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="email@acesso.com" required autofocus />
+                </div>
+
+                <div class="form-group my-3">
+                    <label for="senha"></label>
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha de acesso" required />
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-danger"> ENTRAR </button>
+            </form>
+        </div>
+
+    </div>
+</div>

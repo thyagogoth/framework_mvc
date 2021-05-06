@@ -1,0 +1,33 @@
+<h1>DEPOIMENTOS</h1>
+
+<hr>
+
+<section id="testimonies">
+    
+    {{ itens }}
+
+    {{ pagination }}
+   
+</section>
+<hr>
+<section id="form" action="?page=1">
+
+    <h3>Envie seu depoimento</h3>
+    
+    <form method="post">
+        <div class="form-group mb-3">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="nome" required>
+        </div>
+        <div class="form-groupmb-3">
+            <label for="nome">Mensagem</label>
+            <textarea class="form-control" rows="5" name="mensagem" required></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+            <button class="btn btn-success">Enviar</button>
+        </div>
+
+    </form>
+
+</section>
