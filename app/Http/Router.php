@@ -102,6 +102,7 @@ class Router {
 			$params['variables'] = $matches[1];
 		}
 
+		$route = rtrim($route, '/');
         // Padrão de validação da url
 		$patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
 
@@ -149,7 +150,7 @@ class Router {
 	 * Método responsável por retornar a URI desconsiderando o predixo
 	 * @return string
 	 */
-	function getUri() {
+	public function getUri() {
 		// URI da Request
 		$uri = $this->request->getUri();
 
@@ -158,7 +159,7 @@ class Router {
 
 		// Retorna a URI sem prefixo
 		// return end($auxUri);
-		return rtrim(end($auxUri), '/') == '' ? end($auxUri) : rtrim(end($auxUri), '/');
+		return rtrim(end($auxUri), '/');
 	}
 
 	/**

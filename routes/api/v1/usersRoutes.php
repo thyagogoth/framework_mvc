@@ -10,6 +10,7 @@ $obRouter->get('/api/v1/users', [
 	'middlewares' => [
 		'api',
 		getenv('AUTHENTICATION_METHOD'),
+		'cache',
 	],
 	function ($request) {
 		return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -32,6 +33,7 @@ $obRouter->get('/api/v1/users/{id}', [
 	'middlewares' => [
 		'api',
 		getenv('AUTHENTICATION_METHOD'),
+		'cache',
 	],
 	function ($request, $id) {
 		return new Response(200, Api\User::getUser($request, $id), 'application/json');
