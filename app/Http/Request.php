@@ -50,7 +50,6 @@ class Request
     {
         $this->router = $router;
         $this->queryParams = $_GET ?? [];
-        // $this->postVars = $_POST ?? [];
         $this->headers = getallheaders();
         $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
         $this->setUri();

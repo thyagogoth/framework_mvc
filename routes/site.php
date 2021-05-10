@@ -5,9 +5,6 @@ use \App\Controller\Pages;
 
 // Rota Home
 $obRouter->get('/', [
-    'middlewares' => [
-        'cache'
-    ],
     function() {
         return new Response(200, Pages\Home::getHome());
     }
